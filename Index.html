@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html lang="nl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>Yiren & Nies · 22.06.2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;500&family=Jost:wght@200;300;400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+  <div class="grain"></div>
+
+  <!-- ══════════════════════════════════
+       ENVELOPE SCENE
+  ══════════════════════════════════ -->
+
+  <section id="envelope-scene">
+
+```
+<div class="scene-bg-glow scene-bg-glow--l"></div>
+<div class="scene-bg-glow scene-bg-glow--r"></div>
+
+<div class="env-intro" id="envIntro">
+  <div class="env-intro-line">Een uitnodiging</div>
+  <div class="env-intro-sub">voor jou</div>
+</div>
+
+<div class="env-stage" id="envStage">
+  <div class="env-shadow"></div>
+
+  <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Open de uitnodiging">
+
+    <!-- envelope body -->
+    <div class="env-body">
+      <!-- bottom-left triangle -->
+      <div class="env-tri env-tri--bl"></div>
+      <!-- bottom-right triangle -->
+      <div class="env-tri env-tri--br"></div>
+      <!-- center bottom triangle (pointing up) -->
+      <div class="env-tri env-tri--bottom"></div>
+    </div>
+
+    <!-- top flap -->
+    <div class="env-flap-wrap" id="envFlapWrap">
+      <div class="env-flap-top"></div>
+    </div>
+
+    <!-- letter that rises -->
+    <div class="env-letter" id="envLetter">
+      <div class="letter-inner">
+        <div class="letter-top-orn">✦ · ✦</div>
+        <div class="letter-mono">Y<em>&amp;</em>N</div>
+        <div class="letter-names-preview">Yiren &amp; Nies</div>
+        <div class="letter-date-preview">22 · VI · MMXXVI</div>
+      </div>
+    </div>
+
+    <!-- wax seal -->
+    <div class="env-seal" id="envSeal">
+      <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="sg" cx="35%" cy="30%">
+            <stop offset="0%" stop-color="#ebb8bb"/>
+            <stop offset="55%" stop-color="#c97478"/>
+            <stop offset="100%" stop-color="#9e4f54"/>
+          </radialGradient>
+          <radialGradient id="shine" cx="30%" cy="25%">
+            <stop offset="0%" stop-color="rgba(255,255,255,0.38)"/>
+            <stop offset="70%" stop-color="rgba(255,255,255,0)"/>
+          </radialGradient>
+        </defs>
+        <ellipse cx="83" cy="86" rx="72" ry="70" fill="rgba(140,50,55,0.3)"/>
+        <ellipse cx="80" cy="82" rx="72" ry="70" fill="url(#sg)"/>
+        <ellipse cx="43" cy="122" rx="11" ry="7" fill="#b86268" transform="rotate(-18,43,122)"/>
+        <ellipse cx="120" cy="116" rx="9" ry="6" fill="#b86268" transform="rotate(14,120,116)"/>
+        <ellipse cx="36" cy="54" rx="8" ry="5" fill="#c97478" transform="rotate(32,36,54)"/>
+        <ellipse cx="126" cy="47" rx="7" ry="5" fill="#c97478" transform="rotate(-22,126,47)"/>
+        <ellipse cx="80" cy="82" rx="72" ry="70" fill="url(#shine)"/>
+        <circle cx="80" cy="80" r="63" fill="none" stroke="rgba(255,218,198,0.32)" stroke-width="1.2"/>
+        <g fill="none" stroke="rgba(255,228,208,0.55)" stroke-width="0.85">
+          <path d="M80 17Q68 22 63 33Q76 31 80 17"/><path d="M80 17Q92 22 97 33Q84 31 80 17"/>
+          <path d="M63 23Q51 26 45 37Q58 39 63 23"/><path d="M97 23Q109 26 115 37Q102 39 97 23"/>
+          <path d="M48 37Q38 44 36 55Q49 54 48 37"/><path d="M112 37Q122 44 124 55Q111 54 112 37"/>
+          <path d="M80 143Q68 138 63 127Q76 129 80 143"/><path d="M80 143Q92 138 97 127Q84 129 80 143"/>
+          <path d="M63 137Q51 134 45 123Q58 121 63 137"/><path d="M97 137Q109 134 115 123Q102 121 97 137"/>
+          <path d="M48 123Q38 116 36 105Q49 106 48 123"/><path d="M112 123Q122 116 124 105Q111 106 112 123"/>
+          <path d="M17 80Q22 68 33 63Q31 76 17 80"/><path d="M17 80Q22 92 33 97Q31 84 17 80"/>
+          <path d="M23 63Q26 51 37 45Q39 58 23 63"/><path d="M23 97Q26 109 37 115Q39 102 23 97"/>
+          <path d="M143 80Q138 68 127 63Q129 76 143 80"/><path d="M143 80Q138 92 127 97Q129 84 143 80"/>
+          <path d="M137 63Q134 51 123 45Q121 58 137 63"/><path d="M137 97Q134 109 123 115Q121 102 137 97"/>
+          <circle cx="80" cy="18" r="2.4" fill="rgba(255,228,208,0.65)" stroke="none"/>
+          <circle cx="80" cy="142" r="2.4" fill="rgba(255,228,208,0.65)" stroke="none"/>
+          <circle cx="18" cy="80" r="2.4" fill="rgba(255,228,208,0.65)" stroke="none"/>
+          <circle cx="142" cy="80" r="2.4" fill="rgba(255,228,208,0.65)" stroke="none"/>
+          <circle cx="43" cy="29" r="1.8" fill="rgba(255,228,208,0.5)" stroke="none"/>
+          <circle cx="117" cy="29" r="1.8" fill="rgba(255,228,208,0.5)" stroke="none"/>
+          <circle cx="43" cy="131" r="1.8" fill="rgba(255,228,208,0.5)" stroke="none"/>
+          <circle cx="117" cy="131" r="1.8" fill="rgba(255,228,208,0.5)" stroke="none"/>
+        </g>
+        <circle cx="80" cy="80" r="46" fill="rgba(155,75,80,0.5)"/>
+        <circle cx="80" cy="80" r="43" fill="none" stroke="rgba(255,218,198,0.22)" stroke-width="0.7"/>
+        <text x="80" y="70" text-anchor="middle" font-family="'Cormorant',Georgia,serif" font-style="italic" font-size="21" fill="rgba(255,244,238,0.96)">Y</text>
+        <text x="80" y="84" text-anchor="middle" font-family="Georgia,serif" font-size="10" fill="rgba(255,218,198,0.75)">&amp;</text>
+        <text x="80" y="100" text-anchor="middle" font-family="'Cormorant',Georgia,serif" font-style="italic" font-size="21" fill="rgba(255,244,238,0.96)">N</text>
+      </svg>
+    </div>
+
+  </div>
+</div>
+
+<div class="env-cta" id="envCta">
+  <div class="env-cta-pulse"></div>
+  <span>Tik om te openen</span>
+</div>
+```
+
+  </section>
+
+  <!-- ══════════════════════════════════
+       INVITATION
+  ══════════════════════════════════ -->
+
+  <main id="invitation" aria-hidden="true">
+
+```
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-mesh"></div>
+  <div class="hero-botanical hero-bl">
+    <svg viewBox="0 0 280 380"><path d="M140 360C85 285 10 248 5 148-3 55 65 18 125 56c22 14 36 48 36 80 0-32 14-66 36-80 60-38 128-3 120 92C307 248 195 285 140 360z" fill="currentColor" opacity=".2"/><line x1="140" y1="330" x2="30" y2="150" stroke="currentColor" stroke-width="1.2" opacity=".1"/><line x1="140" y1="330" x2="250" y2="150" stroke="currentColor" stroke-width="1.2" opacity=".1"/><ellipse cx="62" cy="200" rx="20" ry="38" transform="rotate(-22,62,200)" fill="currentColor" opacity=".1"/><ellipse cx="218" cy="200" rx="20" ry="38" transform="rotate(22,218,200)" fill="currentColor" opacity=".1"/></svg>
+  </div>
+  <div class="hero-botanical hero-tr">
+    <svg viewBox="0 0 280 380"><path d="M140 20C85 95 10 132 5 232c-8 93 60 130 120 92 22-14 36-48 36-80 0 32 14 66 36 80 60 38 128 3 120-92C307 132 195 95 140 20z" fill="currentColor" opacity=".18"/></svg>
+  </div>
+
+  <div class="hero-content">
+    <p class="eyebrow" data-reveal>Wij gaan trouwen</p>
+    <h1 class="hero-title" data-reveal>
+      <span class="hn hn-1">Yiren</span>
+      <span class="hn hn-amp">&amp;</span>
+      <span class="hn hn-2">Nies</span>
+    </h1>
+    <div class="hero-divider" data-reveal>
+      <span></span><i>◆</i><span></span>
+    </div>
+    <p class="hero-date-text" data-reveal>22 Juni 2026</p>
+    <p class="hero-loc-text" data-reveal>Kasteel Duurstede &nbsp;·&nbsp; Wijk bij Duurstede</p>
+  </div>
+
+  <div class="hero-down" aria-hidden="true"><div class="down-bar"></div></div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote-sec">
+  <div class="quote-fill"></div>
+  <blockquote data-reveal>
+    <div class="qm">"</div>
+    <p>En in al het mooie van de wereld,<br>koos ik jou — steeds opnieuw.</p>
+    <cite>— voor altijd</cite>
+  </blockquote>
+</section>
+
+<!-- LOCATION -->
+<section class="loc-sec">
+  <p class="sec-label" data-reveal>De Locatie</p>
+  <h2 class="sec-title" data-reveal>Kasteel Duurstede</h2>
+
+  <div class="loc-card" data-reveal>
+    <div class="loc-visual">
+      <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg" class="castle-svg">
+        <defs>
+          <linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c8ddc4" stop-opacity=".5"/><stop offset="100%" stop-color="#eaf2e8" stop-opacity=".1"/></linearGradient>
+          <linearGradient id="wl" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8aaa82"/><stop offset="100%" stop-color="#5a7854"/></linearGradient>
+        </defs>
+        <rect width="600" height="260" fill="url(#sk)"/>
+        <rect x="0" y="215" width="600" height="45" fill="#6b8f64" opacity=".2"/>
+        <!-- trees left -->
+        <ellipse cx="52" cy="178" rx="26" ry="52" fill="#4a6644" opacity=".55"/>
+        <rect x="49" y="210" width="7" height="30" fill="#3a5235" opacity=".5"/>
+        <ellipse cx="98" cy="188" rx="18" ry="36" fill="#5a7854" opacity=".45"/>
+        <rect x="95" y="212" width="5" height="22" fill="#3a5235" opacity=".4"/>
+        <!-- trees right -->
+        <ellipse cx="548" cy="178" rx="26" ry="52" fill="#4a6644" opacity=".55"/>
+        <rect x="545" y="210" width="7" height="30" fill="#3a5235" opacity=".5"/>
+        <ellipse cx="502" cy="188" rx="18" ry="36" fill="#5a7854" opacity=".45"/>
+        <rect x="499" y="212" width="5" height="22" fill="#3a5235" opacity=".4"/>
+        <!-- main wall -->
+        <rect x="130" y="138" width="340" height="105" fill="url(#wl)" opacity=".72"/>
+        <g fill="#8aaa82" opacity=".7"><rect x="130" y="127" width="18" height="14"/><rect x="157" y="127" width="18" height="14"/><rect x="184" y="127" width="18" height="14"/><rect x="330" y="127" width="18" height="14"/><rect x="357" y="127" width="18" height="14"/><rect x="384" y="127" width="18" height="14"/><rect x="411" y="127" width="18" height="14"/></g>
+        <!-- left tower -->
+        <rect x="118" y="76" width="68" height="170" fill="#7d9b76" opacity=".78"/>
+        <rect x="116" y="56" width="72" height="24" fill="#8aaa82" opacity=".7"/>
+        <g fill="#8aaa82" opacity=".72"><rect x="118" y="44" width="13" height="15"/><rect x="137" y="44" width="13" height="15"/><rect x="156" y="44" width="13" height="15"/><rect x="175" y="44" width="13" height="15"/></g>
+        <!-- right tower -->
+        <rect x="414" y="76" width="68" height="170" fill="#7d9b76" opacity=".78"/>
+        <rect x="412" y="56" width="72" height="24" fill="#8aaa82" opacity=".7"/>
+        <g fill="#8aaa82" opacity=".72"><rect x="414" y="44" width="13" height="15"/><rect x="433" y="44" width="13" height="15"/><rect x="452" y="44" width="13" height="15"/><rect x="471" y="44" width="13" height="15"/></g>
+        <!-- center keep -->
+        <rect x="234" y="32" width="132" height="212" fill="#6b8f64" opacity=".82"/>
+        <rect x="232" y="10" width="136" height="26" fill="#7d9b76" opacity=".76"/>
+        <g fill="#7d9b76" opacity=".75"><rect x="234" y="0" width="15" height="14"/><rect x="255" y="0" width="15" height="14"/><rect x="276" y="0" width="15" height="14"/><rect x="297" y="0" width="15" height="14"/><rect x="318" y="0" width="15" height="14"/><rect x="339" y="0" width="15" height="14"/></g>
+        <!-- windows -->
+        <g fill="rgba(255,248,235,0.38)"><rect x="264" y="55" width="16" height="26" rx="8"/><rect x="320" y="55" width="16" height="26" rx="8"/><rect x="264" y="102" width="16" height="26" rx="8"/><rect x="320" y="102" width="16" height="26" rx="8"/><rect x="148" y="108" width="13" height="20" rx="6.5"/><rect x="148" y="152" width="13" height="20" rx="6.5"/><rect x="439" y="108" width="13" height="20" rx="6.5"/><rect x="439" y="152" width="13" height="20" rx="6.5"/></g>
+        <!-- gate -->
+        <path d="M268 244 L268 192 Q300 172 332 192 L332 244Z" fill="rgba(40,58,36,0.65)"/>
+        <!-- flag -->
+        <line x1="300" y1="10" x2="300" y2="-16" stroke="#c4a35a" stroke-width="1.5" opacity=".7"/>
+        <path d="M300,-14 L320,-6 L300,2Z" fill="#c4a35a" opacity=".7"/>
+      </svg>
+    </div>
+    <div class="loc-info">
+      <div class="loc-name">Kasteel Duurstede</div>
+      <address class="loc-addr">
+        Kasteel 1<br>
+        3961 AS Wijk bij Duurstede<br>
+        Utrecht, Nederland
+      </address>
+      <a href="https://maps.google.com/?q=Kasteel+Duurstede,+Wijk+bij+Duurstede" class="btn-route" target="_blank" rel="noopener">
+        <span class="btn-route-icon">↗</span>
+        Route plannen
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="tl-sec">
+  <div class="tl-ambient"></div>
+  <p class="sec-label" data-reveal>Planning</p>
+  <h2 class="sec-title" data-reveal>De Dag</h2>
+
+  <div class="tl-wrap">
+    <div class="tl-axis"></div>
+
+    <div class="tl-item" data-reveal>
+      <div class="tl-dot"><div></div></div>
+      <div class="tl-card">
+        <span class="tl-time">12:30</span>
+        <h3 class="tl-name">Ontvangst</h3>
+        <p class="tl-desc">De deuren van het kasteel openen. Welkom met een glas in de prachtige kasteeltuinen.</p>
+      </div>
+    </div>
+
+    <div class="tl-item tl-item--alt" data-reveal>
+      <div class="tl-dot"><div></div></div>
+      <div class="tl-card">
+        <span class="tl-time">13:00</span>
+        <h3 class="tl-name">Ceremonie</h3>
+        <p class="tl-desc">Het moment waar alles om draait — het ja-woord, omringd door de mensen die we liefhebben.</p>
+      </div>
+    </div>
+
+    <div class="tl-item" data-reveal>
+      <div class="tl-dot"><div></div></div>
+      <div class="tl-card">
+        <span class="tl-time">14:30</span>
+        <h3 class="tl-name">Receptie</h3>
+        <p class="tl-desc">Proost! Hapjes, drankjes en de eerste foto's als getrouwd stel in de binnentuin.</p>
+      </div>
+    </div>
+
+    <div class="tl-item tl-item--alt" data-reveal>
+      <div class="tl-dot"><div></div></div>
+      <div class="tl-card">
+        <span class="tl-time">18:30</span>
+        <h3 class="tl-name">Diner</h3>
+        <p class="tl-desc">Een feestelijk diner aan tafel — goed eten, mooie toasten en herinneringen die blijven.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COUNTDOWN -->
+<section class="cd-sec">
+  <div class="cd-bg"></div>
+  <p class="sec-label light" data-reveal>Aftellen</p>
+  <div class="cd-grid" id="countdown" data-reveal>
+    <div class="cd-u"><div class="cd-n" id="cd-days">—</div><div class="cd-l">dagen</div></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-u"><div class="cd-n" id="cd-hours">—</div><div class="cd-l">uren</div></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-u"><div class="cd-n" id="cd-mins">—</div><div class="cd-l">minuten</div></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-u"><div class="cd-n" id="cd-secs">—</div><div class="cd-l">seconden</div></div>
+  </div>
+</section>
+
+<!-- RSVP -->
+<section class="rsvp-sec">
+  <p class="sec-label" data-reveal>Aanmelden</p>
+  <h2 class="sec-title" data-reveal>Kom je ook?</h2>
+  <div class="rsvp-card" data-reveal>
+    <div class="rsvp-ornament" aria-hidden="true">✦ · ✦ · ✦</div>
+    <p class="rsvp-body">
+      We zouden het geweldig vinden je te zien op <strong>22 juni 2026</strong>.
+      Geef vóór <strong>1 april 2026</strong> door of je erbij bent —
+      samen met eventuele dieetwensen.
+    </p>
+    <a href="mailto:trouwen@yirennies.nl" class="btn-rsvp">
+      Stuur je aanmelding
+      <span>→</span>
+    </a>
+    <div class="rsvp-email">trouwen@yirennies.nl</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-vine" aria-hidden="true">
+    <svg viewBox="0 0 400 80" fill="none"><path d="M0 60 Q100 10 200 40 Q300 70 400 20" stroke="currentColor" stroke-width="1.2" opacity=".15"/><ellipse cx="75" cy="45" rx="14" ry="26" transform="rotate(-18,75,45)" fill="currentColor" opacity=".07"/><ellipse cx="195" cy="35" rx="12" ry="22" transform="rotate(8,195,35)" fill="currentColor" opacity=".06"/><ellipse cx="325" cy="50" rx="14" ry="24" transform="rotate(22,325,50)" fill="currentColor" opacity=".07"/></svg>
+  </div>
+  <div class="footer-mono">Y <em>&amp;</em> N</div>
+  <div class="footer-couple">Yiren &amp; Nies</div>
+  <div class="footer-d">22 · 06 · 2026</div>
+  <div class="footer-p">Kasteel Duurstede</div>
+  <div class="footer-orn" aria-hidden="true">✦ ◆ ✦</div>
+</footer>
+```
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
